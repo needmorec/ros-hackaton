@@ -18,7 +18,7 @@ set_attitude = rospy.ServiceProxy('set_attitude', srv.SetAttitude)
 set_rates = rospy.ServiceProxy('set_rates', srv.SetRates)
 land = rospy.ServiceProxy('land', Trigger) #для посадки
 
-def navigate_wait(x=0, y=0, z=1, yaw=float('nan'), speed=0.5, frame_id='aruco_map', auto_arm=False, tolerance=0.2):
+def navigate_wait(x=0, y=0, z=0.8, yaw=float('nan'), speed=0.5, frame_id='aruco_map', auto_arm=False, tolerance=0.2):
     navigate(x=x, y=y, z=z, yaw=yaw, speed=speed, frame_id=frame_id, auto_arm=auto_arm)
 
     while not rospy.is_shutdown():
@@ -33,8 +33,12 @@ navigate_wait(frame_id='aruco_103')
 rospy.sleep(3)
 navigate_wait(frame_id='aruco_104')
 rospy.sleep(3)
-navigate_wait(frame_id='body')
+navigate_wait(frame_id='aruco_104')
 rospy.sleep(3)
-navigate_wait(z=0.5, frame_id='body')
+navigate_wait(frame_id='aruco_230')
+rospy.sleep(3)
+navigate_wait(frame_id='aruco_125')
+rospy.sleep(3)
+navigate_wait(z=0.4, frame_id='aruco_91')
 rospy.sleep(3)
 land()
