@@ -1,11 +1,12 @@
 services:
   ros:
-    image: osrf/ros:noetic-desktop-full
+    build:
+      context: .
     environment:
       - DISPLAY=host.docker.internal:0
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./src:/src
-    working_dir: /src
+      - ./ws:/ws
+    working_dir: /ws
     tty: true
     command: bash

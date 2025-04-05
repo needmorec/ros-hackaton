@@ -2,6 +2,7 @@
 .idea
 venv
 
-src/build
-src/install
-src/log
+ws/.catkin_tools
+ws/build
+ws/devel
+ws/logs
